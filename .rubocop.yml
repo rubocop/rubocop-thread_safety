@@ -79,6 +79,3 @@ RSpec/ExampleLength:
 RSpec/ContextWording:
   Exclude:
     - spec/shared_contexts.rb
-
-Gemspec/DevelopmentDependencies:
-  EnforcedStyle: gemspec

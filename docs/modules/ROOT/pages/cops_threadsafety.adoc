@@ -6,6 +6,7 @@
 
 = ThreadSafety
 
+[#threadsafetyclassandmoduleattributes]
 == ThreadSafety/ClassAndModuleAttributes
 
 |===
@@ -22,6 +23,7 @@ Avoid mutating class and module attributes.
 
 They are implemented by class variables, which are not thread-safe.
 
+[#examples-threadsafetyclassandmoduleattributes]
 === Examples
 
 [source,ruby]
@@ -32,6 +34,7 @@ class User
 end
 ----
 
+[#configurable-attributes-threadsafetyclassandmoduleattributes]
 === Configurable attributes
 
 |===
@@ -42,6 +45,7 @@ end
 | Boolean
 |===
 
+[#threadsafetyclassinstancevariable]
 == ThreadSafety/ClassInstanceVariable
 
 |===
@@ -56,6 +60,7 @@ end
 
 Avoid class instance variables.
 
+[#examples-threadsafetyclassinstancevariable]
 === Examples
 
 [source,ruby]
@@ -117,6 +122,7 @@ module Example
 end
 ----
 
+[#threadsafetydirchdir]
 == ThreadSafety/DirChdir
 
 |===
@@ -131,6 +137,7 @@ end
 
 Avoid using `Dir.chdir` due to its process-wide effect.
 
+[#examples-threadsafetydirchdir]
 === Examples
 
 [source,ruby]
@@ -142,6 +149,7 @@ Dir.chdir("/var/run")
 FileUtils.chdir("/var/run")
 ----
 
+[#threadsafetymutableclassinstancevariable]
 == ThreadSafety/MutableClassInstanceVariable
 
 |===
@@ -172,8 +180,10 @@ updated with an exhaustive list of all methods that will produce frozen
 objects so there is a decent chance of getting some false positives.
 Luckily, there is no harm in freezing an already frozen object.
 
+[#examples-threadsafetymutableclassinstancevariable]
 === Examples
 
+[#enforcedstyle_-literals-_default_-threadsafetymutableclassinstancevariable]
 ==== EnforcedStyle: literals (default)
 
 [source,ruby]
@@ -201,6 +211,7 @@ class Model
 end
 ----
 
+[#enforcedstyle_-strict-threadsafetymutableclassinstancevariable]
 ==== EnforcedStyle: strict
 
 [source,ruby]
@@ -234,6 +245,7 @@ class Model
 end
 ----
 
+[#configurable-attributes-threadsafetymutableclassinstancevariable]
 === Configurable attributes
 
 |===
@@ -244,6 +256,7 @@ end
 | `literals`, `strict`
 |===
 
+[#threadsafetynewthread]
 == ThreadSafety/NewThread
 
 |===
@@ -260,6 +273,7 @@ Avoid starting new threads.
 
 Let a framework like Sidekiq handle the threads.
 
+[#examples-threadsafetynewthread]
 === Examples
 
 [source,ruby]
@@ -268,6 +282,7 @@ Let a framework like Sidekiq handle the threads.
 Thread.new { do_work }
 ----
 
+[#threadsafetyrackmiddlewareinstancevariable]
 == ThreadSafety/RackMiddlewareInstanceVariable
 
 |===
@@ -286,6 +301,7 @@ Middlewares are initialized once, meaning any instance variables are shared betw
 To avoid potential race conditions, it's recommended to design middlewares to be stateless
 or to implement proper synchronization mechanisms.
 
+[#examples-threadsafetyrackmiddlewareinstancevariable]
 === Examples
 
 [source,ruby]
@@ -329,6 +345,7 @@ class IdentityMiddleware
 end
 ----
 
+[#configurable-attributes-threadsafetyrackmiddlewareinstancevariable]
 === Configurable attributes
 
 |===
