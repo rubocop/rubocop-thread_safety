@@ -1,0 +1,5 @@
+name: rubocop-thread_safety
+title: RuboCop Thread Safety
+version: ~
+nav:
+  - modules/ROOT/nav.adoc

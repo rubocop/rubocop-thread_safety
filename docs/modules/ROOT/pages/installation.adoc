@@ -1,0 +1,15 @@
+= Installation
+
+Just install the `rubocop-thread_safety` gem
+
+[source,bash]
+----
+gem install rubocop-thread_safety
+----
+
+or if you use bundler put this in your `Gemfile`
+
+[source,ruby]
+----
+gem 'rubocop-thread_safety'
+----

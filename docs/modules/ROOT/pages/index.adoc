@@ -1,0 +1,4 @@
+= RuboCop Thread Safety
+
+Thread safety analysis for your projects, as an extension to
+https://github.com/rubocop/rubocop[RuboCop].
