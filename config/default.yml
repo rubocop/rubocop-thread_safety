@@ -7,8 +7,8 @@ ThreadSafety/ClassAndModuleAttributes:
   Enabled: true
   ActiveSupportClassAttributeAllowed: false
 
-ThreadSafety/InstanceVariableInClassMethod:
-  Description: 'Avoid using instance variables in class methods.'
+ThreadSafety/ClassInstanceVariable:
+  Description: 'Avoid class instance variables.'
   Enabled: true
 
 ThreadSafety/MutableClassInstanceVariable:
