@@ -16,6 +16,86 @@ RSpec.describe RuboCop::Cop::ThreadSafety::MutableClassInstanceVariable,
     ].compact.join("\n")
   end
 
+  shared_examples 'when within DSL known to have thread-safe semantics' do
+    %i[setup teardown].each do |method_name|
+      it "does not register an offense for `ActiveSupport::TestCase`s #{method_name}" do
+        expect_no_offenses(<<~RUBY)
+          class FooTest < ActiveSupport::TestCase
+            #{method_name} do
+              @something = { a: "A" }
+            end
+          end
+        RUBY
+      end
+
+      it "does not register an offense for `ActiveSupport::TestCase` #{method_name} with other DSL" do
+        expect_no_offenses(<<~RUBY)
+          class FooTest < ActiveSupport::TestCase
+            foo do
+              do_something
+            end
+
+            def bar
+              :baz
+            end
+
+            #{method_name} do
+              @something = { a: "A" }
+            end
+
+            class << self
+              do_something
+            end
+          end
+        RUBY
+      end
+
+      it "registers an offense for `#{method_name}` within class without explicit superclass" do
+        expect_offense(<<~RUBY)
+          class FooTest
+            setup do
+              @something = { a: "A" }
+                           ^^^^^^^^^^ Freeze mutable objects assigned to class instance variables.
+            end
+          end
+        RUBY
+      end
+
+      it "registers an offense for `#{method_name}` within class with unrelated superclass" do
+        expect_offense(<<~RUBY, method_name: method_name)
+          class FooTest < MyTest
+            #{method_name} do
+              @something = { a: "A" }
+                           ^^^^^^^^^^ Freeze mutable objects assigned to class instance variables.
+            end
+          end
+        RUBY
+      end
+
+      it "registers an offense for `#{method_name}` when DSL is within module" do
+        expect_offense(<<~RUBY)
+          module Foo
+            set_up do
+              @something = { a: "A" }
+                           ^^^^^^^^^^ Freeze mutable objects assigned to class instance variables.
+            end
+          end
+        RUBY
+      end
+    end
+
+    it 'registers an offense for unrelated method' do
+      expect_offense(<<~RUBY)
+        class FooTest < MyTest
+          set_up do
+            @something = { a: "A" }
+                         ^^^^^^^^^^ Freeze mutable objects assigned to class instance variables.
+          end
+        end
+      RUBY
+    end
+  end
+
   shared_examples 'mutable objects' do |o|
     context 'when assigning with =' do
       it "registers an offense for #{o} assigned to a class ivar" do
@@ -120,6 +200,8 @@ RSpec.describe RuboCop::Cop::ThreadSafety::MutableClassInstanceVariable,
 
   context 'with Strict: false' do
     let(:cop_config) { { 'EnforcedStyle' => 'literals' } }
+
+    include_examples 'when within DSL known to have thread-safe semantics'
 
     %w[class module].each do |mod|
       context "when inside a #{mod}" do
@@ -380,6 +462,8 @@ RSpec.describe RuboCop::Cop::ThreadSafety::MutableClassInstanceVariable,
 
   context 'with Strict: true' do
     let(:cop_config) { { 'EnforcedStyle' => 'strict' } }
+
+    include_examples 'when within DSL known to have thread-safe semantics'
 
     %w[class module].each do |mod|
       context "when inside a #{mod}" do
