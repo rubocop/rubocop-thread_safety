@@ -2,6 +2,7 @@
 
 * [#104](https://github.com/rubocop/rubocop-thread_safety/pull/104): Set minimum required RuboCop version to `1.81`. ([@viralpraxis][])
 * [#95](https://github.com/rubocop/rubocop-thread_safety/pull/94): Add new `ThreadSafety/MethodRedefinition` cop. ([@viralpraxis][])
+* [#91](https://github.com/rubocop/rubocop-thread_safety/pull/91): Make `ThreadSafety/MutableClassInstanceVariable` cop aware of `TestCase`'s `setup`/`teardown` DSL. ([@viralpraxis][])
 
 ## 0.7.3
 
