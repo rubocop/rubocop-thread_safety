@@ -227,9 +227,9 @@ module RuboCop
         # @!method new_lexical_scope?(node)
         def_node_matcher :new_lexical_scope?, <<~PATTERN
           {
-            (block (send (const nil? :Struct) :new ...) _ ({def defs} ...))
-            (block (send (const nil? :Class) :new ...) _ ({def defs} ...))
-            (block (send (const nil? :Data) :define ...) _ ({def defs} ...))
+            (block (send (const nil? :Struct) :new ...) _ (any_def ...))
+            (block (send (const nil? :Class) :new ...) _ (any_def ...))
+            (block (send (const nil? :Data) :define ...) _ (any_def ...))
             (block
               (send nil?
                 {
