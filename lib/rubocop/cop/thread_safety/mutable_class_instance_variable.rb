@@ -194,7 +194,7 @@ module RuboCop
 
         def requires_parentheses?(node)
           range_type?(node) ||
-            (node.send_type? && node.loc.dot.nil?)
+            (node.send_type? && (node.loc.dot.nil? || (node.arguments.any? && !node.parenthesized_call?)))
         end
 
         def range_type?(node)

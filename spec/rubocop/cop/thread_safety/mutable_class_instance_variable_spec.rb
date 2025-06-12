@@ -460,6 +460,21 @@ RSpec.describe RuboCop::Cop::ThreadSafety::MutableClassInstanceVariable,
           expect_no_offenses(surround('@@list = [1, 2]'))
         end
 
+        it 'registers an offense for method call with arguments and without parentheses' do
+          expect_offense(<<~RUBY)
+            #{mod} M
+              @foobar = ClassA.new foo: 'bar'
+                        ^^^^^^^^^^^^^^^^^^^^^ Freeze mutable objects assigned to class instance variables.
+            end
+          RUBY
+
+          expect_correction(<<~RUBY)
+            #{mod} M
+              @foobar = (ClassA.new foo: 'bar').freeze
+            end
+          RUBY
+        end
+
         describe 'inside an if statement' do
           let(:prefix) { "#{mod} Test\n  if something" }
           let(:suffix) { "  end\nend" }
