@@ -1,6 +1,6 @@
 # Change log
 
-## master
+## 0.7.3
 
 [#93](https://github.com/rubocop/rubocop-thread_safety/pull/93): Fix an error for `ThreadSafety/MutableClassInstanceVariable` cop. ([@viralpraxis](https://github.com/viralpraxis))
 
