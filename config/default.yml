@@ -11,6 +11,13 @@ ThreadSafety/ClassInstanceVariable:
   Description: 'Avoid class instance variables.'
   Enabled: true
 
+ThreadSafety/MethodRedefinition:
+  Description: 'Do not use `remove_method` followed by method definition.'
+  Enabled: true
+  VersionAdded: '<<next>>'
+  References:
+    - 'https://bugs.ruby-lang.org/issues/13574'
+
 ThreadSafety/MutableClassInstanceVariable:
   Description: 'Do not assign mutable objects to class instance variables.'
   Enabled: true
