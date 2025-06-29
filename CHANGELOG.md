@@ -1,5 +1,7 @@
 # Change log
 
+* [#95](https://github.com/rubocop/rubocop-thread_safety/pull/94): Add new `ThreadSafety/MethodRedefinition` cop. ([@viralpraxis][])
+
 ## 0.7.3
 
 * [#93](https://github.com/rubocop/rubocop-thread_safety/pull/93): Fix an error for `ThreadSafety/MutableClassInstanceVariable` cop. ([@viralpraxis][])
