@@ -41,7 +41,7 @@ module RuboCop
       #
       #   # good
       #   class Model
-      #     @var = Something.new
+      #     @var = Something.new.freeze
       #   end
       #
       # @example EnforcedStyle: strict
