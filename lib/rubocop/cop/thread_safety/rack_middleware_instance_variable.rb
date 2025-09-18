@@ -113,7 +113,7 @@ module RuboCop
           constructor_method
             .each_node(:ivasgn)
             .select { |ivasgn_node| operation_produces_threadsafe_object?(ivasgn_node.to_a[1]) }
-            .map { _1.to_a[0] }
+            .map { |item| item.to_a[0] }
         end
       end
     end
