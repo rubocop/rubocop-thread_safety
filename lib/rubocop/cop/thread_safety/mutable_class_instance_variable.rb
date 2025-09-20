@@ -138,6 +138,8 @@ module RuboCop
         end
 
         def on_assignment(value)
+          return if within_dsl_with_threadsafe_semantics?(value)
+
           if style == :strict
             strict_check(value)
           else
@@ -247,6 +249,19 @@ module RuboCop
         def_node_matcher :range_enclosed_in_parentheses?, <<~PATTERN
           (begin (range _ _))
         PATTERN
+
+        # rubocop:disable Metrics
+        def within_dsl_with_threadsafe_semantics?(node)
+          return false unless node
+          return false unless (block_node = node.ancestors.find(&:block_type?))
+          return false unless block_node.method?(:setup) || block_node.method?(:teardown)
+
+          class_node = block_node.ancestors.find(&:class_type?)
+          return false unless class_node
+
+          class_node.parent_class&.const_name == 'ActiveSupport::TestCase'
+        end
+        # rubocop:enable Metrics
       end
     end
   end
