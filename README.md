@@ -65,6 +65,10 @@ Improvements that would make shared state thread-safe include:
 
 Certain system calls, such as `chdir`, affect the entire process. To avoid potential thread-safety issues, it's preferable to use (if possible) the `chdir` option in methods like `Kernel.system` and `IO.popen` rather than relying on `Dir.chdir`.
 
+## Useful resources
+
+* Intro to thread-safety in Ruby by Socketry: https://socketry.github.io/async/guides/thread-safety/index.html
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
