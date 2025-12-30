@@ -5,8 +5,7 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'appraisal'
-gem 'bundler', '>= 1.10', '< 3'
-gem 'prism', '~> 1.4.0'
+gem 'bundler', '>= 1.10'
 gem 'pry' unless ENV['CI']
 gem 'rake', '>= 10.0'
 gem 'rspec', '~> 3.0'
