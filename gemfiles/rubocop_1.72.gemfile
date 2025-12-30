@@ -5,7 +5,7 @@
 source 'https://rubygems.org'
 
 gem 'appraisal'
-gem 'bundler', '>= 1.10', '< 3'
+gem 'bundler', '>= 1.10'
 gem 'prism', '~> 1.4.0'
 gem 'pry'
 gem 'rake', '>= 10.0'
