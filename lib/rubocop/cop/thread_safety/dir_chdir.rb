@@ -15,13 +15,13 @@ module RuboCop
       #   FileUtils.chdir("/var/run")
       #
       # @example AllowCallWithBlock: false (default)
-      #   # good
+      #   # bad
       #   Dir.chdir("/var/run") do
       #     puts Dir.pwd
       #   end
       #
       # @example AllowCallWithBlock: true
-      #   # bad
+      #   # good
       #   Dir.chdir("/var/run") do
       #     puts Dir.pwd
       #   end

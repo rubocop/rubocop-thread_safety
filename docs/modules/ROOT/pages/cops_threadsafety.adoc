@@ -156,7 +156,7 @@ FileUtils.chdir("/var/run")
 
 [source,ruby]
 ----
-# good
+# bad
 Dir.chdir("/var/run") do
   puts Dir.pwd
 end
@@ -167,7 +167,7 @@ end
 
 [source,ruby]
 ----
-# bad
+# good
 Dir.chdir("/var/run") do
   puts Dir.pwd
 end
