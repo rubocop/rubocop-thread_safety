@@ -37,7 +37,7 @@ jobs:
         with:
           bundler-cache: true # 'bundle install' and cache gems
           ruby-version: ${{ matrix.ruby }}
-          bundler: 2.3.26
+          bundler: ${{ matrix.ruby == 'ruby-head' && 'latest' || '2.3.26' }}
       - name: Run tests
         run: bundle exec rspec
 
