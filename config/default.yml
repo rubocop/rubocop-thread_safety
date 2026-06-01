@@ -23,6 +23,11 @@ ThreadSafety/MethodRedefinition:
   References:
     - 'https://bugs.ruby-lang.org/issues/13574'
 
+ThreadSafety/LazySynchronizationPrimitive:
+  Description: 'Do not lazily initialize synchronization primitives with `||=`.'
+  Enabled: true
+  VersionAdded: '<<next>>'
+
 ThreadSafety/MutableClassInstanceVariable:
   Description: 'Do not assign mutable objects to class instance variables.'
   Enabled: true
