@@ -6,6 +6,7 @@ gemspec
 
 gem 'appraisal'
 gem 'bundler', '>= 1.10'
+gem 'irb'
 gem 'pry' unless ENV['CI']
 gem 'rake', '>= 10.0'
 gem 'rspec', '~> 3.0'
