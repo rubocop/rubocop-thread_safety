@@ -1,5 +1,6 @@
 # Change log
 
+* [#107](https://github.com/rubocop/rubocop-thread_safety/pull/107): Add new `ThreadSafety/ActiveSupportCallbacks` cop. ([@mikegee][])
 * [#104](https://github.com/rubocop/rubocop-thread_safety/pull/104): Set minimum required RuboCop version to `1.81`. ([@viralpraxis][])
 * [#95](https://github.com/rubocop/rubocop-thread_safety/pull/95): Add new `ThreadSafety/MethodRedefinition` cop. ([@viralpraxis][])
 * [#91](https://github.com/rubocop/rubocop-thread_safety/pull/91): Make `ThreadSafety/MutableClassInstanceVariable` cop aware of `TestCase`'s `setup`/`teardown` DSL. ([@viralpraxis][])
@@ -36,5 +37,6 @@
 * [#36](https://github.com/rubocop/rubocop-thread_safety/pull/36): Add new `DirChdir` cop to detect `Dir.chdir` calls. ([@viralpraxis][])
 
 [@bquorning]: https://github.com/bquorning
+[@mikegee]: https://github.com/mikegee
 [@sambostock]: https://github.com/sambostock
 [@viralpraxis]: https://github.com/viralpraxis

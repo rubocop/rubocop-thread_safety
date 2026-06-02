@@ -1,5 +1,6 @@
 === Department xref:cops_threadsafety.adoc[ThreadSafety]
 
+* xref:cops_threadsafety.adoc#threadsafetyactivesupportcallbacks[ThreadSafety/ActiveSupportCallbacks]
 * xref:cops_threadsafety.adoc#threadsafetyclassandmoduleattributes[ThreadSafety/ClassAndModuleAttributes]
 * xref:cops_threadsafety.adoc#threadsafetyclassinstancevariable[ThreadSafety/ClassInstanceVariable]
 * xref:cops_threadsafety.adoc#threadsafetymutableclassinstancevariable[ThreadSafety/MutableClassInstanceVariable]

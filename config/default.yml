@@ -2,6 +2,11 @@
 #
 # Without adding these to your rubocop config, these values will be the default.
 
+ThreadSafety/ActiveSupportCallbacks:
+  Description: 'Avoid mutating ActiveSupport callback chains at runtime.'
+  Enabled: true
+  VersionAdded: '<<next>>'
+
 ThreadSafety/ClassAndModuleAttributes:
   Description: 'Avoid mutating class and module attributes.'
   Enabled: true
