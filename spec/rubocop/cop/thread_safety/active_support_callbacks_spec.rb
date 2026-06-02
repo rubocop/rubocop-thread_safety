@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 RSpec.describe RuboCop::Cop::ThreadSafety::ActiveSupportCallbacks, :config do
+  let(:gem_versions) { { 'activesupport' => '7.0.0' } }
+
   it 'registers an offense for `skip_callback` with a constant receiver' do
     expect_offense(<<~RUBY)
       Site.skip_callback(:commit, :after, :after_owner_change)
@@ -64,5 +66,15 @@ RSpec.describe RuboCop::Cop::ThreadSafety::ActiveSupportCallbacks, :config do
     expect_no_offenses(<<~RUBY)
       Site.after_commit :after_owner_change
     RUBY
+  end
+
+  context 'without ActiveSupport' do
+    let(:gem_versions) { {} }
+
+    it 'does not register an offense' do
+      expect_no_offenses(<<~RUBY)
+        Site.skip_callback(:commit, :after, :after_owner_change)
+      RUBY
+    end
   end
 end

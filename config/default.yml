@@ -3,7 +3,7 @@
 # Without adding these to your rubocop config, these values will be the default.
 
 ThreadSafety/ActiveSupportCallbacks:
-  Description: 'Avoid mutating ActiveSupport callbacks with an explicit constant receiver.'
+  Description: 'Avoid mutating ActiveSupport callback chains at runtime.'
   Enabled: true
   VersionAdded: '<<next>>'
 

@@ -19,7 +19,7 @@
 | -
 |===
 
-Avoid mutating ActiveSupport callbacks with an explicit constant receiver.
+Avoid mutating ActiveSupport callback chains at runtime.
 
 Calls such as `User.skip_callback` and `User.set_callback` mutate callback
 chains at process scope.
