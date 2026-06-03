@@ -1,5 +1,6 @@
 # Change log
 
+* [#109](https://github.com/rubocop/rubocop-thread_safety/pull/109): Add new `ThreadSafety/LazySynchronizationPrimitive` cop. ([@viralpraxis][])
 * [#107](https://github.com/rubocop/rubocop-thread_safety/pull/107): Add new `ThreadSafety/ActiveSupportCallbacks` cop. ([@mikegee][])
 * [#104](https://github.com/rubocop/rubocop-thread_safety/pull/104): Set minimum required RuboCop version to `1.81`. ([@viralpraxis][])
 * [#95](https://github.com/rubocop/rubocop-thread_safety/pull/95): Add new `ThreadSafety/MethodRedefinition` cop. ([@viralpraxis][])
