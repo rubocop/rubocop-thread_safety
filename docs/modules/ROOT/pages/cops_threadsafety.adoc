@@ -222,6 +222,43 @@ end
 | Boolean
 |===
 
+[#threadsafetyenvmutation]
+== ThreadSafety/EnvMutation
+
+|===
+| Enabled by default | Safe | Supports autocorrection | Version Added | Version Changed
+
+| Disabled
+| Yes
+| No
+| <<next>>
+| -
+|===
+
+Avoid mutating `ENV`.
+
+Environment variables are process-wide. Mutating them can affect other
+threads, requests, jobs, or subprocesses running in the same Ruby
+process.
+
+[#examples-threadsafetyenvmutation]
+=== Examples
+
+[source,ruby]
+----
+# bad
+ENV['TZ'] = 'UTC'
+
+# bad
+ENV.update('FOO' => 'bar')
+
+# good
+system({ 'TZ' => 'UTC' }, 'date')
+
+# good
+ENV.fetch('TZ', 'UTC')
+----
+
 [#threadsafetylazysynchronizationprimitive]
 == ThreadSafety/LazySynchronizationPrimitive
 

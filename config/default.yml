@@ -54,6 +54,11 @@ ThreadSafety/DirChdir:
   Enabled: true
   AllowCallWithBlock: false
 
+ThreadSafety/EnvMutation:
+  Description: Avoid mutating `ENV` due to its process-wide effect.
+  Enabled: false
+  VersionAdded: '<<next>>'
+
 ThreadSafety/RackMiddlewareInstanceVariable:
   Description: Avoid instance variables in Rack middleware.
   Enabled: true
