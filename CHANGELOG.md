@@ -1,5 +1,6 @@
 # Change log
 
+* [#112](https://github.com/rubocop/rubocop-thread_safety/pull/112): Speed up loading rubocop-thread_safety by lazily loading only the cops needed for a run. This requires RuboCop 1.89.0+. ([@koic][])
 * [#111](https://github.com/rubocop/rubocop-thread_safety/pull/111): Add new `ThreadSafety/EnvMutation` cop. ([@mikegee][])
 * [#109](https://github.com/rubocop/rubocop-thread_safety/pull/109): Add new `ThreadSafety/LazySynchronizationPrimitive` cop. ([@viralpraxis][])
 * [#107](https://github.com/rubocop/rubocop-thread_safety/pull/107): Add new `ThreadSafety/ActiveSupportCallbacks` cop. ([@mikegee][])
@@ -39,6 +40,7 @@
 * [#36](https://github.com/rubocop/rubocop-thread_safety/pull/36): Add new `DirChdir` cop to detect `Dir.chdir` calls. ([@viralpraxis][])
 
 [@bquorning]: https://github.com/bquorning
+[@koic]: https://github.com/koic
 [@mikegee]: https://github.com/mikegee
 [@sambostock]: https://github.com/sambostock
 [@viralpraxis]: https://github.com/viralpraxis
