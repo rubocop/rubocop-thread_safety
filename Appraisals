@@ -11,6 +11,6 @@ customize_gemfiles do
   }
 end
 
-appraise 'rubocop-1.81' do
-  gem 'rubocop', '~> 1.81'
+appraise 'rubocop-1.89' do
+  gem 'rubocop', '~> 1.89'
 end

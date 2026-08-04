@@ -54,7 +54,7 @@ task :new_cop, [:cop] do |_task, args|
 
   generator.write_source
   generator.write_spec
-  generator.inject_require(root_file_path: 'lib/rubocop-thread_safety.rb')
+  generator.inject_registration
   generator.inject_config(config_file_path: 'config/default.yml')
 
   puts generator.todo
