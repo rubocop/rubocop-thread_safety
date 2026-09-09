@@ -6,7 +6,7 @@ module RuboCop
   module ThreadSafety
     # A plugin that integrates RuboCop ThreadSafety with RuboCop's plugin system.
     class Plugin < LintRoller::Plugin
-      # :nocov:
+      # simplecov:disable
       def about
         LintRoller::About.new(
           name: 'rubocop-thread_safety',
@@ -15,7 +15,7 @@ module RuboCop
           description: 'Thread-safety checks via static analysis.'
         )
       end
-      # :nocov:
+      # simplecov:enable
 
       def supported?(context)
         context.engine == :rubocop

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# rubocop:disable RSpec/ExampleLength,RSpec/MultipleMemoizedHelpers,RSpec/NestedGroups
+# rubocop:disable-next RSpec/ExampleLength,RSpec/MultipleMemoizedHelpers,RSpec/NestedGroups
 RSpec.describe RuboCop::Cop::ThreadSafety::MutableClassInstanceVariable,
                :config do
   let(:msg) { 'Freeze mutable objects assigned to class instance variables.' }
@@ -814,4 +814,3 @@ RSpec.describe RuboCop::Cop::ThreadSafety::MutableClassInstanceVariable,
     end
   end
 end
-# rubocop:enable RSpec/ExampleLength,RSpec/MultipleMemoizedHelpers,RSpec/NestedGroups

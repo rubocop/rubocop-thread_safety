@@ -157,7 +157,7 @@ RSpec.describe RuboCop::Cop::ThreadSafety::ClassInstanceVariable, :config do
     RUBY
   end
 
-  # rubocop:disable RSpec/ExampleLength
+  # rubocop:disable-next RSpec/ExampleLength
   it 'registers an offense for assigning an ivar in class_methods within lambda', :with_legacy_lambda_node do
     expect_offense(<<~RUBY)
       module Test
@@ -172,7 +172,6 @@ RSpec.describe RuboCop::Cop::ThreadSafety::ClassInstanceVariable, :config do
       end
     RUBY
   end
-  # rubocop:enable RSpec/ExampleLength
 
   it 'registers an offense for assigning an ivar in a class singleton method' do
     expect_offense(<<~RUBY)
