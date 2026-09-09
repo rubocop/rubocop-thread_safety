@@ -3,7 +3,11 @@
 require 'simplecov'
 
 SimpleCov.start do
-  add_filter '/spec'
+  if SimpleCov.respond_to?(:skip)
+    skip '/spec'
+  else
+    add_filter '/spec'
+  end
 
   enable_coverage :branch
 end

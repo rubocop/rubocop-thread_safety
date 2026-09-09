@@ -250,7 +250,7 @@ module RuboCop
           (begin (range _ _))
         PATTERN
 
-        # rubocop:disable Metrics
+        # rubocop:disable-next Metrics
         def within_dsl_with_threadsafe_semantics?(node)
           return false unless node
           return false unless (block_node = node.ancestors.find(&:block_type?))
@@ -261,7 +261,6 @@ module RuboCop
 
           class_node.parent_class&.const_name == 'ActiveSupport::TestCase'
         end
-        # rubocop:enable Metrics
       end
     end
   end
