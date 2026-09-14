@@ -15,7 +15,7 @@
 | Pending
 | Yes
 | No
-| <<next>>
+| 0.8
 | -
 |===
 
@@ -231,7 +231,7 @@ end
 | Disabled
 | Yes
 | No
-| <<next>>
+| 0.8
 | -
 |===
 
@@ -268,7 +268,7 @@ ENV.fetch('TZ', 'UTC')
 | Pending
 | Yes
 | No
-| <<next>>
+| 0.8
 | -
 |===
 
@@ -306,7 +306,7 @@ end
 | Pending
 | Yes
 | No
-| <<next>>
+| 0.8
 | -
 |===
 

@@ -1,5 +1,7 @@
 # Change log
 
+## 0.8.0
+
 * [#112](https://github.com/rubocop/rubocop-thread_safety/pull/112): Speed up loading rubocop-thread_safety by lazily loading only the cops needed for a run. This requires RuboCop 1.89.0+. ([@koic][])
 * [#111](https://github.com/rubocop/rubocop-thread_safety/pull/111): Add new `ThreadSafety/EnvMutation` cop. ([@mikegee][])
 * [#109](https://github.com/rubocop/rubocop-thread_safety/pull/109): Add new `ThreadSafety/LazySynchronizationPrimitive` cop. ([@viralpraxis][])

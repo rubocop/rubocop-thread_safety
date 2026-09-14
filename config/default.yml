@@ -5,7 +5,7 @@
 ThreadSafety/ActiveSupportCallbacks:
   Description: 'Avoid mutating ActiveSupport callback chains at runtime.'
   Enabled: pending
-  VersionAdded: '<<next>>'
+  VersionAdded: '0.8'
 
 ThreadSafety/ClassAndModuleAttributes:
   Description: 'Avoid mutating class and module attributes.'
@@ -19,14 +19,14 @@ ThreadSafety/ClassInstanceVariable:
 ThreadSafety/MethodRedefinition:
   Description: 'Do not use `remove_method` followed by method definition.'
   Enabled: pending
-  VersionAdded: '<<next>>'
+  VersionAdded: '0.8'
   References:
     - 'https://bugs.ruby-lang.org/issues/13574'
 
 ThreadSafety/LazySynchronizationPrimitive:
   Description: 'Do not lazily initialize synchronization primitives with `||=`.'
   Enabled: pending
-  VersionAdded: '<<next>>'
+  VersionAdded: '0.8'
 
 ThreadSafety/MutableClassInstanceVariable:
   Description: 'Do not assign mutable objects to class instance variables.'
@@ -57,7 +57,7 @@ ThreadSafety/DirChdir:
 ThreadSafety/EnvMutation:
   Description: Avoid mutating `ENV` due to its process-wide effect.
   Enabled: false
-  VersionAdded: '<<next>>'
+  VersionAdded: '0.8'
 
 ThreadSafety/RackMiddlewareInstanceVariable:
   Description: Avoid instance variables in Rack middleware.
