@@ -1,5 +1,7 @@
 # Change log
 
+* [#116](https://github.com/rubocop/rubocop-thread_safety/pull/116): Set `DocumentationBaseURL`, so `--show-docs-url`, `--explain` and editors can link the cops to their documentation. ([@bbatsov][])
+
 ## 0.8.0
 
 * [#112](https://github.com/rubocop/rubocop-thread_safety/pull/112): Speed up loading rubocop-thread_safety by lazily loading only the cops needed for a run. This requires RuboCop 1.89.0+. ([@koic][])
@@ -41,6 +43,7 @@
 * [#38](https://github.com/rubocop/rubocop-thread_safety/pull/38): Fix `NewThread` cop detection is case of `Thread.start`, `Thread.fork`, or `Thread.new` with arguments. ([@viralpraxis][])
 * [#36](https://github.com/rubocop/rubocop-thread_safety/pull/36): Add new `DirChdir` cop to detect `Dir.chdir` calls. ([@viralpraxis][])
 
+[@bbatsov]: https://github.com/bbatsov
 [@bquorning]: https://github.com/bquorning
 [@koic]: https://github.com/koic
 [@mikegee]: https://github.com/mikegee
