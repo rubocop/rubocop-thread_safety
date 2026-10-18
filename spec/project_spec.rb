@@ -13,4 +13,13 @@ RSpec.describe 'RuboCop Thread Safety project' do # rubocop:disable RSpec/Descri
       expect(registered).to eq(files)
     end
   end
+
+  describe 'default configuration' do
+    it 'links cops to their documentation' do
+      config = RuboCop::Config.new(YAML.load_file(File.expand_path('../config/default.yml', __dir__)))
+
+      expect(RuboCop::Cop::ThreadSafety::NewThread.documentation_url(config))
+        .to eq('https://docs.rubocop.org/rubocop-thread_safety/cops_threadsafety.html#threadsafetynewthread')
+    end
+  end
 end
