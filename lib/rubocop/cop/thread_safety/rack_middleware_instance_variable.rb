@@ -57,7 +57,7 @@ module RuboCop
 
         # @!method rack_middleware_like_class?(node)
         def_node_matcher :rack_middleware_like_class?, <<~MATCHER
-          (class (const nil? _) nil? (begin <(def :initialize (args (arg _)+) ...) (def :call (args (arg _)) ...) ...>))
+          (class (const nil? _) nil? (begin <(def :initialize (args (arg _) ...) ...) (def :call (args (arg _)) ...) ...>))
         MATCHER
 
         # @!method app_variable(node)
