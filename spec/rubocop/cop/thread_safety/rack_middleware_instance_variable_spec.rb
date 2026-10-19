@@ -426,4 +426,31 @@ RSpec.describe RuboCop::Cop::ThreadSafety::RackMiddlewareInstanceVariable, :conf
       RUBY
     end
   end
+
+  context 'with non-positional constructor parameters' do
+    [
+      'app, options = {}',
+      'app, store:',
+      'app, store: nil',
+      'app, *args',
+      'app, **options',
+      'app, &block'
+    ].each do |parameters|
+      it "registers an offense for `initialize(#{parameters})`" do
+        expect_offense(<<~RUBY)
+          class TestMiddleware
+            def initialize(#{parameters})
+              @app = app
+            end
+
+            def call(env)
+              @env = env
+              ^^^^^^^^^^ #{msg}
+              @app.call(env)
+            end
+          end
+        RUBY
+      end
+    end
+  end
 end

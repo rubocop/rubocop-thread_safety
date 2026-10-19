@@ -1,5 +1,6 @@
 # Change log
 
+* [#117](https://github.com/rubocop/rubocop-thread_safety/pull/117): Make `ThreadSafety/RackMiddlewareInstanceVariable` recognise middleware whose constructor takes optional, keyword, splat or block parameters after the app. ([@ceritium][])
 * [#116](https://github.com/rubocop/rubocop-thread_safety/pull/116): Set `DocumentationBaseURL`, so `--show-docs-url`, `--explain` and editors can link the cops to their documentation. ([@bbatsov][])
 
 ## 0.8.0
@@ -45,6 +46,7 @@
 
 [@bbatsov]: https://github.com/bbatsov
 [@bquorning]: https://github.com/bquorning
+[@ceritium]: https://github.com/ceritium
 [@koic]: https://github.com/koic
 [@mikegee]: https://github.com/mikegee
 [@sambostock]: https://github.com/sambostock
