@@ -1,0 +1,28 @@
+name: Publish the docs
+
+on:
+  push:
+    tags:
+      - "v*"  # Trigger when a version tag is pushed (e.g., v1.0.0)
+
+permissions: {}
+
+jobs:
+  publish-docs:
+    runs-on: ubuntu-latest
+
+    env:
+      # A fine-grained token with contents write access to rubocop/docs.rubocop.org,
+      # which sending it a repository dispatch requires.
+      DISPATCH_TOKEN: ${{ secrets.RELEASE_DISPATCH_TOKEN }}
+
+    steps:
+      # Adds the tag to docs.rubocop.org's playbook and publishes the docs.
+      - name: Publish the docs
+        if: env.DISPATCH_TOKEN != ''
+        uses: peter-evans/repository-dispatch@v4
+        with:
+          token: ${{ env.DISPATCH_TOKEN }}
+          repository: rubocop/docs.rubocop.org
+          event-type: release
+          client-payload: '{"project": "rubocop-thread_safety", "tag": "${{ github.ref_name }}"}'

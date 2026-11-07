@@ -1,5 +1,6 @@
 name: rubocop-thread_safety
 title: RuboCop Thread Safety
-version: ~
+# No version here: docs.rubocop.org derives it from the release tag
+# (v0.9.0 becomes 0.9), so patch versions don't appear in the docs.
 nav:
   - modules/ROOT/nav.adoc
