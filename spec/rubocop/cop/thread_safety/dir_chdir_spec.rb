@@ -42,6 +42,13 @@ RSpec.describe RuboCop::Cop::ThreadSafety::DirChdir, :config do
         RUBY
       end
 
+      it 'registers an offense with a numbered block parameter', :ruby27 do
+        expect_offense(<<~RUBY, expression: expression)
+          %{expression}("/var/run") { puts _1 }
+          ^{expression}^^^^^^^^^^^^ Avoid using `%{expression}` due to its process-wide effect.
+        RUBY
+      end
+
       it 'registers an offense with provided block argument' do
         expect_offense(<<~RUBY, expression: expression)
           def change_dir(&block)
@@ -82,11 +89,26 @@ RSpec.describe RuboCop::Cop::ThreadSafety::DirChdir, :config do
       { 'Enabled' => true, 'AllowCallWithBlock' => true }
     end
 
-    %w[Dir.chdir FileUtils.chdir FileUtils.cd].each do |expression|
+    %w[Dir.chdir Dir&.chdir FileUtils.chdir FileUtils.cd].each do |expression|
       it 'registers an offense for block-less call' do
         expect_offense(<<~RUBY, expression: expression)
           %{expression}("/var/run")
           ^{expression}^^^^^^^^^^^^ Avoid using `%{expression}` due to its process-wide effect.
+        RUBY
+      end
+
+      it 'registers an offense for a block-less call inside another block' do
+        expect_offense(<<~RUBY, expression: expression)
+          1.times do
+            %{expression}("/var/run")
+            ^{expression}^^^^^^^^^^^^ Avoid using `%{expression}` due to its process-wide effect.
+          end
+        RUBY
+      end
+
+      it 'does not register an offense with a numbered block parameter', :ruby27 do
+        expect_no_offenses(<<~RUBY)
+          #{expression}("/var/run") { puts _1 }
         RUBY
       end
 
