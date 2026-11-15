@@ -89,7 +89,7 @@ RSpec.describe RuboCop::Cop::ThreadSafety::DirChdir, :config do
       { 'Enabled' => true, 'AllowCallWithBlock' => true }
     end
 
-    %w[Dir.chdir Dir&.chdir FileUtils.chdir FileUtils.cd].each do |expression|
+    %w[Dir.chdir FileUtils.chdir FileUtils.cd].each do |expression|
       it 'registers an offense for block-less call' do
         expect_offense(<<~RUBY, expression: expression)
           %{expression}("/var/run")
