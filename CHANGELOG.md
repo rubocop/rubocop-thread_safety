@@ -1,5 +1,6 @@
 # Change log
 
+* [#119](https://github.com/rubocop/rubocop-thread_safety/pull/119): Fix false positives for numbered blocks and false negatives for block-less calls inside other blocks in `ThreadSafety/DirChdir` when `AllowCallWithBlock` is enabled. ([@mikegee][])
 * [#117](https://github.com/rubocop/rubocop-thread_safety/pull/117): Make `ThreadSafety/RackMiddlewareInstanceVariable` recognise middleware whose constructor takes optional, keyword, splat or block parameters after the app. ([@ceritium][])
 * [#116](https://github.com/rubocop/rubocop-thread_safety/pull/116): Set `DocumentationBaseURL`, so `--show-docs-url`, `--explain` and editors can link the cops to their documentation. ([@bbatsov][])
 
