@@ -40,7 +40,7 @@ module RuboCop
 
         def on_send(node)
           return unless chdir?(node)
-          return if allow_call_with_block? && (node.block_argument? || node.parent&.block_type?)
+          return if allow_call_with_block? && (node.block_argument? || node.block_literal?)
 
           add_offense(
             node,
